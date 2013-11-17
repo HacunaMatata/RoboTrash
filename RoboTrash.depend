@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1384708476 source:f:\programming\cpp\project\robotrash\main.cpp
+1384710415 source:f:\programming\cpp\project\robotrash\main.cpp
 	<iostream>
 	"src\CGame.h"
-	"SDL2\SDL.h"
 
 1381075008 f:\programming\cpp\project\robotrash\novaengine\include\novaengine.h
 	"INovaEngine.h"
@@ -306,11 +305,13 @@
 
 1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 
-1384704731 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
+1384712139 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
 	"CGame.h"
 
-1384708957 f:\programming\cpp\project\robotrash\src\cgame.h
+1384712941 f:\programming\cpp\project\robotrash\src\cgame.h
 	"SDL2\SDL.h"
+	"GL\GL.h"
+	"GL\GLU.h"
 
 1382584023 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -626,4 +627,9 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+
+1384712845 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
+	"CMap.h"
+
+1384712845 f:\programming\cpp\project\robotrash\src\cmap.h
 

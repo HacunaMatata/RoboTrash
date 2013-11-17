@@ -13,7 +13,6 @@ class CGame
         bool initWindow();
         bool initGL();
 
-
         bool run();
     protected:
     private:

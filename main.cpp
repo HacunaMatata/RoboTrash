@@ -1,9 +1,16 @@
 #include <iostream>
+#include "NovaEngine.h"
 
 using namespace std;
+using namespace novaengine;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    INovaEngine* engine = createEngine();
+
+    while(engine->run())
+    {
+    }
+
     return 0;
 }

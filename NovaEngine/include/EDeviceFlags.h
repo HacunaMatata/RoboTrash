@@ -1,0 +1,6 @@
+#ifndef EDEVICEFLAGS_H
+#define EDEVICEFLAGS_H
+
+
+
+#endif // EDEVICEFLAGS_H

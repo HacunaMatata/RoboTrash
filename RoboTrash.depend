@@ -1,4 +1,307 @@
 # depslib dependency file v1.0
-1353751060 source:f:\programming\cpp\project\robotrash\main.cpp
+1384703190 source:f:\programming\cpp\project\robotrash\main.cpp
 	<iostream>
+	"NovaEngine.h"
+
+1381075008 f:\programming\cpp\project\robotrash\novaengine\include\novaengine.h
+	"INovaEngine.h"
+	"IWindow.h"
+	"IRenderer.h"
+	"IEventHandler.h"
+	"ITextureManager.h"
+	"IVertexArray.h"
+	"IFileSystem.h"
+	"IFile.h"
+	"IImage.h"
+	"ITexture.h"
+	"ISceneManager.h"
+	"IGUIManager.h"
+	"IGeometryManager.h"
+	"IMaterial.h"
+	"IScene.h"
+	"ISceneNode.h"
+	"ISceneSprite.h"
+	"ISceneCamera.h"
+	"ISceneTileMap.h"
+	"IGUILayout.h"
+	"IGUINode.h"
+	"IGUIButton.h"
+	"IGUIImage.h"
+	"ERendererEnums.h"
+	"EKeycodes.h"
+	"SEngineParams.h"
+	"SEvent.h"
+	"SPixelFormat.h"
+	"STextureGenParams.h"
+	"Types.h"
+	"dimension2d_t.h"
+	"vector2d_t.h"
+	"vector3d_t.h"
+	"matrix4_t.h"
+	"color4_t.h"
+	"rect_t.h"
+	"CVertexArray.h"
+	"version.h"
+
+1369477940 f:\programming\cpp\project\robotrash\novaengine\include\inovaengine.h
+	"Types.h"
+	"Object.h"
+	"IWindow.h"
+	"IRenderer.h"
+	"ISceneManager.h"
+	"IGUIManager.h"
+	"ITextureManager.h"
+	"IGeometryManager.h"
+	"IResourceManager.h"
+	"IFileSystem.h"
+	"IEventHandler.h"
+	"SEvent.h"
+
+1381147986 f:\programming\cpp\project\robotrash\novaengine\include\types.h
+	"dimension2d_t.h"
+	"vector2d_t.h"
+	"vector3d_t.h"
+	"matrix4_t.h"
+	"color4_t.h"
+	"rect_t.h"
+	<string>
+	<vector>
+
+1376143102 f:\programming\cpp\project\robotrash\novaengine\include\dimension2d_t.h
+
+1380840866 f:\programming\cpp\project\robotrash\novaengine\include\vector2d_t.h
+	"Types.h"
+	<math.h>
+	"vector3d_t.h"
+
+1380840612 f:\programming\cpp\project\robotrash\novaengine\include\vector3d_t.h
+	"Types.h"
+	<stdio.h>
+	<string.h>
+	"vector2d_t.h"
+
+1380810604 f:\programming\cpp\project\robotrash\novaengine\include\matrix4_t.h
+	"Types.h"
+	"NMath.h"
+	"vector3d_t.h"
+	<stdio.h>
+	<string.h>
+	<math.h>
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\nmath.h
+	"Types.h"
+
+1380821804 f:\programming\cpp\project\robotrash\novaengine\include\color4_t.h
+
+1381119489 f:\programming\cpp\project\robotrash\novaengine\include\rect_t.h
+	"Types.h"
+
+1377461462 f:\programming\cpp\project\robotrash\novaengine\include\object.h
+	<cstdio>
+
+1382078494 f:\programming\cpp\project\robotrash\novaengine\include\iwindow.h
+	"Object.h"
+	"Types.h"
+	"EDeviceFlags.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\edeviceflags.h
+
+1380836968 f:\programming\cpp\project\robotrash\novaengine\include\irenderer.h
+	"Object.h"
+	"Types.h"
+	"ERendererEnums.h"
+	"ITexture.h"
+	"IImage.h"
+	"IVertexArray.h"
+	"IVertexBufferObject.h"
+	"CMaterial.h"
+	"STextureGenParams.h"
+
+1376056927 f:\programming\cpp\project\robotrash\novaengine\include\erendererenums.h
+
+1370605090 f:\programming\cpp\project\robotrash\novaengine\include\itexture.h
+	"Types.h"
+	"Object.h"
+	"IImage.h"
+
+1380819877 f:\programming\cpp\project\robotrash\novaengine\include\iimage.h
+	"Object.h"
+	"Types.h"
+	"SPixelFormat.h"
+
+1377452114 f:\programming\cpp\project\robotrash\novaengine\include\spixelformat.h
+	"Types.h"
+
+1380739684 f:\programming\cpp\project\robotrash\novaengine\include\ivertexarray.h
+	"Types.h"
+	"Object.h"
+	"SVertex.h"
+	"ERendererEnums.h"
+	"IVertexBufferObject.h"
+	"IMaterial.h"
+	"aabbox3d.h"
+
+1380700668 f:\programming\cpp\project\robotrash\novaengine\include\svertex.h
+	"Types.h"
+
+1374240712 f:\programming\cpp\project\robotrash\novaengine\include\ivertexbufferobject.h
+	"Types.h"
+	"Object.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\imaterial.h
+	"Object.h"
+	"Types.h"
+	"ITexture.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\aabbox3d.h
+	"Types.h"
+
+1378734728 f:\programming\cpp\project\robotrash\novaengine\include\cmaterial.h
+	"Types.h"
+	"Object.h"
+	"IMaterial.h"
+
+1377285137 f:\programming\cpp\project\robotrash\novaengine\include\stexturegenparams.h
+	"Types.h"
+
+1376143519 f:\programming\cpp\project\robotrash\novaengine\include\iscenemanager.h
+	"Object.h"
+	"Types.h"
+	"ITexture.h"
+	"ITileMap.h"
+
+1374672966 f:\programming\cpp\project\robotrash\novaengine\include\itilemap.h
+	"Types.h"
+	"Object.h"
+	"IRenderer.h"
+	"IVertexArray.h"
+
+1381147986 f:\programming\cpp\project\robotrash\novaengine\include\iguimanager.h
+	"Types.h"
+	"Object.h"
+	"IEventHandler.h"
+	"IVertexArray.h"
+	"IFont.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\ieventhandler.h
+	"Object.h"
+	"SEvent.h"
+
+1381148052 f:\programming\cpp\project\robotrash\novaengine\include\sevent.h
+
+1381147986 f:\programming\cpp\project\robotrash\novaengine\include\ifont.h
+	"Types.h"
+	"IRenderer.h"
+	"IImage.h"
+	"ITexture.h"
+	"IVertexArray.h"
+
+1376058862 f:\programming\cpp\project\robotrash\novaengine\include\itexturemanager.h
+	"Types.h"
+	"Object.h"
+	"IImage.h"
+	"ITexture.h"
+
+1376291147 f:\programming\cpp\project\robotrash\novaengine\include\igeometrymanager.h
+	"Object.h"
+	"Types.h"
+	"ITileMap.h"
+
+1377535697 f:\programming\cpp\project\robotrash\novaengine\include\iresourcemanager.h
+	"Object.h"
+	"IFont.h"
+	"IImageReader.h"
+	"IFontReader.h"
+	"IMeshReader.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iimagereader.h
+	"Object.h"
+	"IFile.h"
+	"IImage.h"
+
+1375596820 f:\programming\cpp\project\robotrash\novaengine\include\ifile.h
+	"Object.h"
+	"Types.h"
+
+1375597084 f:\programming\cpp\project\robotrash\novaengine\include\ifontreader.h
+	"Object.h"
+	"IFile.h"
+	"IFont.h"
+
+1377536941 f:\programming\cpp\project\robotrash\novaengine\include\imeshreader.h
+	"Object.h"
+	"IFile.h"
+	"IMesh.h"
+
+1377532002 f:\programming\cpp\project\robotrash\novaengine\include\imesh.h
+	"Object.h"
+	"IVertexArray.h"
+	"IMaterial.h"
+
+1375700720 f:\programming\cpp\project\robotrash\novaengine\include\ifilesystem.h
+	"Object.h"
+	"IFile.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iscene.h
+	"Types.h"
+	"Object.h"
+
+1373831706 f:\programming\cpp\project\robotrash\novaengine\include\iscenenode.h
+	"Object.h"
+	"Types.h"
+	"ISceneManager.h"
+	"IScene.h"
+	"../src/Logger.h"
+
+1371050922 f:\programming\cpp\project\robotrash\novaengine\src\logger.h
+	<iostream>
+	<cstdarg>
+	"Types.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iscenesprite.h
+	"Types.h"
+	"IScene2DNode.h"
+
+1373803406 f:\programming\cpp\project\robotrash\novaengine\include\iscene2dnode.h
+	"Object.h"
+	"Types.h"
+	"ISceneNode.h"
+
+1374163062 f:\programming\cpp\project\robotrash\novaengine\include\iscenecamera.h
+	"ISceneNode.h"
+	"Types.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iscenetilemap.h
+	"IScene2DNode.h"
+	"ITileMap.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iguilayout.h
+	"Object.h"
+	"IGUIManager.h"
+
+1377464478 f:\programming\cpp\project\robotrash\novaengine\include\iguinode.h
+	"Types.h"
+	"Object.h"
+	"SEvent.h"
+	"IGUIManager.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iguibutton.h
+	"IGUINode.h"
+
+1369409572 f:\programming\cpp\project\robotrash\novaengine\include\iguiimage.h
+	"IGUINode.h"
+	"ITexture.h"
+	"IMaterial.h"
+
+1374153772 f:\programming\cpp\project\robotrash\novaengine\include\ekeycodes.h
+
+1382076873 f:\programming\cpp\project\robotrash\novaengine\include\sengineparams.h
+	"ERendererEnums.h"
+	"IEventHandler.h"
+	"Types.h"
+
+1380747758 f:\programming\cpp\project\robotrash\novaengine\include\cvertexarray.h
+	"IVertexArray.h"
+
+1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 

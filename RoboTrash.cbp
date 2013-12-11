@@ -55,6 +55,12 @@
 		<Unit filename="src/CMap.h">
 			<Option virtualFolder="game/" />
 		</Unit>
+		<Unit filename="src/CUnitManager.cpp">
+			<Option virtualFolder="game/" />
+		</Unit>
+		<Unit filename="src/CUnitManager.h">
+			<Option virtualFolder="game/" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
     CGame game;
     game.initWindow();
     game.initGL();
+    game.initScene();
     game.run();
     return 0;
 }

@@ -20,7 +20,7 @@ CGame::~CGame()
 bool CGame::initWindow()
 {
     SDL_Init(SDL_INIT_VIDEO);
-    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,600,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,1024,768,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,32);
@@ -33,16 +33,27 @@ bool CGame::initWindow()
 
 bool CGame::initGL()
 {
-    glViewport(0,0,800,600);
+    glViewport(0,0,1024,768);
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0,800,0,600,-10,10);
+    glOrtho(0,1024,0,768,-10,10);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
+bool CGame::initScene()
+{
+    GameMap = new CMap("res\\maps\\map1.txt");
+    UtMgr   = new CUnitManager(GameMap);
 
+    UtMgr->createUnit(10,10);
+    UtMgr->createUnit(5,5);
+    UtMgr->createUnit(10,5);
+    UtMgr->createUnit(5,10);
+
+
+}
 bool CGame::run()
 {
     SDL_Event sdlevent;
@@ -60,13 +71,19 @@ bool CGame::run()
                 /* Oh, its magic adobe */
             }
         }
+        //-----------------------------AI
+        UtMgr->process_ai();
         //-----------------------------Main
         glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
         //! Render here
+        GameMap->render();
+        UtMgr->render();
         //!-------------
-
+        unsigned int x = 100;
+        unsigned int y = 100;
+        SDL_Delay(50);
         SDL_GL_SwapWindow(Window);
     }
 

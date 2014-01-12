@@ -13,9 +13,17 @@ struct SUnit
 
         unsigned int x;
         unsigned int y;
+        unsigned int lx;
+        unsigned int ly;
+
+
         unsigned int r;
-        unsigned int lr;
         unsigned int fm;
+
+        unsigned char Rcolor;
+        unsigned char Gcolor;
+        unsigned char Bcolor;
+
 
         unsigned int unitID;
 };
@@ -34,7 +42,7 @@ class CUnitManager
 
         void process_ai();
 
-        void render();
+        void render(float dt);
 
     protected:
     private:
@@ -43,6 +51,9 @@ class CUnitManager
 
         SUnit         player;
         vector<SUnit> units;
+
+        float SimSpeed;
+        float Accum;
 };
 
 #endif // CUNITMANAGER_H

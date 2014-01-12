@@ -94,9 +94,11 @@ CMap::~CMap()
 }
 SSpawnPos CMap::getRandomSpawnPoint()
 {
-        if(CurrentSpanwPointID == SpawnPoints.size())
+        if(CurrentSpanwPointID >= SpawnPoints.size())
             CurrentSpanwPointID = 0;
-        return SpawnPoints[CurrentSpanwPointID++];
+        SSpawnPos pos = SpawnPoints[CurrentSpanwPointID];
+        CurrentSpanwPointID++;
+        return pos;
 }
 
 SMapTile* CMap::getMapTile(unsigned int x,unsigned int y)
@@ -127,7 +129,7 @@ void CMap::render()
             switch(tile->tileID)
             {
             case 1:
-                glColor3f(1,0,0);
+                glColor3f(0,0,0);
                 break;
             case 2:
                 glColor3f(1,1,0);
@@ -136,7 +138,7 @@ void CMap::render()
                 glColor3f(0,1,1);
                 break;
             case 4:
-                glColor3f(0,1,0);
+                glColor3f(0.4,0.4,0.4);
                 break;
             }
 

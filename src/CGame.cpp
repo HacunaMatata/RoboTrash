@@ -6,6 +6,7 @@
 #define PUDGE_HOOOOOK break;
 
 #include "CGame.h"
+#include "Time.h"
 
 CGame::CGame()
 {
@@ -41,6 +42,8 @@ bool CGame::initGL()
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+
+    glEnable(GL_TEXTURE_2D);
 }
 bool CGame::initScene()
 {
@@ -57,8 +60,14 @@ bool CGame::initScene()
 bool CGame::run()
 {
     SDL_Event sdlevent;
+
+    unsigned int time_1 = 0;
+    unsigned int time_2 = 0;
+    unsigned int dt = 0;
+    unsigned int acc = 0;
     while(true)
     {
+        time_1 = clock();
         //-----------------------------EventHandler
         while(SDL_PollEvent(&sdlevent))
         {
@@ -72,19 +81,27 @@ bool CGame::run()
             }
         }
         //-----------------------------AI
+        if(acc > 250)
+        {
+            acc -= 250;
         UtMgr->process_ai();
+        }
+        acc+=dt;
         //-----------------------------Main
         glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
         //! Render here
         GameMap->render();
-        UtMgr->render();
+        UtMgr->render(dt);
         //!-------------
         unsigned int x = 100;
         unsigned int y = 100;
-        SDL_Delay(250);
         SDL_GL_SwapWindow(Window);
+        SDL_Delay(1);
+        time_2 = clock();
+
+        dt = time_2 - time_1;
     }
 
 }

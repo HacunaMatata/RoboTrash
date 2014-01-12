@@ -4,6 +4,7 @@ CUnitManager::CUnitManager(CMap* _Map)
 {
     Map = _Map;
     lastID = 1;
+    player.health = 0;
 }
 
 CUnitManager::~CUnitManager()
@@ -11,16 +12,19 @@ CUnitManager::~CUnitManager()
     //dtor
 }
 
-unsigned int CUnitManager::createUnit(unsigned int x,unsigned int y)
+unsigned int CUnitManager::createUnit()
 {
     SUnit unit;
 
     unit.health = 3;
 
-    unit.x = x;
-    unit.y = y;
+    SSpawnPos point = Map->getRandomSpawnPoint();
 
-    unit.r = 4;
+    unit.x = point.x;
+    unit.y = point.y;
+
+    unit.r  = 4;
+    unit.fm = 0;
 
     unit.unitID = lastID;
 
@@ -44,16 +48,18 @@ unsigned int CUnitManager::removeUnit(unsigned int unitId)
 
 SUnit* CUnitManager::getUnitByPos(unsigned int x,unsigned int y)
 {
-    if(player.x == x && player.y == y)
-        return &player;
+    //if(player.x == x && player.y == y)
+    //    return &player;
 
     for(unsigned int i = 0; i < units.size(); i++)
     {
         if(units[i].x == x && units[i].y == y )
         {
-            return &units[i];
+            if(units[i].health > 0)
+                return &units[i];
         }
     }
+    return NULL;
 }
 
 SUnit* CUnitManager::getUnitById(unsigned int unitId)
@@ -63,11 +69,13 @@ SUnit* CUnitManager::getUnitById(unsigned int unitId)
 
     for(unsigned int i = 0; i < units.size(); i++)
     {
-        if(units[i].unitID == unitId )
+        if(units[i].unitID == unitId)
         {
-            return &units[i];
+            if(units[i].health > 0)
+                return &units[i];
         }
     }
+    return NULL;
 }
 
 void CUnitManager::process_ai()
@@ -76,6 +84,68 @@ void CUnitManager::process_ai()
     {
         if(units[i].health > 0)
         {
+            switch(units[i].r)
+            {
+            case 1:
+                if(getUnitByPos(units[i].x,units[i].y+1) || getUnitByPos(units[i].x,units[i].y+2))
+                {
+                    SUnit* c1 = getUnitByPos(units[i].x,units[i].y+1);
+                    SUnit* c2 = getUnitByPos(units[i].x,units[i].y+2);
+
+                    if(c1)
+                        c1->health--;
+                    else
+                        c2->health--;
+
+                    continue;
+                }
+                break;
+            case 2:
+                if(getUnitByPos(units[i].x+1,units[i].y) || getUnitByPos(units[i].x+2,units[i].y))
+                {
+                    SUnit* c1 = getUnitByPos(units[i].x+1,units[i].y);
+                    SUnit* c2 = getUnitByPos(units[i].x+2,units[i].y);
+
+                    if(c1)
+                        c1->health--;
+                    else
+                        c2->health--;
+
+                    continue;
+                }
+                break;
+
+            case 3:
+                if(getUnitByPos(units[i].x,units[i].y-1) || getUnitByPos(units[i].x,units[i].y-2))
+                {
+                    SUnit* c1 = getUnitByPos(units[i].x,units[i].y-1);
+                    SUnit* c2 = getUnitByPos(units[i].x,units[i].y-2);
+
+                    if(c1)
+                        c1->health--;
+                    else
+                        c2->health--;
+
+                    continue;
+                }
+                break;
+
+            case 4:
+                if(getUnitByPos(units[i].x-1,units[i].y) || getUnitByPos(units[i].x-2,units[i].y))
+                {
+                    SUnit* c1 = getUnitByPos(units[i].x-1,units[i].y);
+                    SUnit* c2 = getUnitByPos(units[i].x-2,units[i].y);
+
+                    if(c1)
+                        c1->health--;
+                    else
+                        c2->health--;
+
+                    continue;
+                }
+                break;
+            }
+
             switch(units[i].r)
             {
             case 1:
@@ -180,6 +250,10 @@ void CUnitManager::process_ai()
             }
             if(units[i].r == 5)
                 units[i].r = 1;
+        }
+        else
+        {
+            units.erase(units.begin() + i);
         }
 
 

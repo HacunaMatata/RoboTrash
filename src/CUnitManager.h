@@ -2,6 +2,7 @@
 #define CUNITMANAGER_H
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <vector>
 #include "CMap.h"
 
@@ -25,7 +26,7 @@ class CUnitManager
         CUnitManager(CMap* Map);
         virtual ~CUnitManager();
 
-        unsigned int createUnit(unsigned int x,unsigned int y);
+        unsigned int createUnit();
         unsigned int removeUnit(unsigned int unitId);
 
         SUnit* getUnitByPos(unsigned int x,unsigned int y);

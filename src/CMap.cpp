@@ -6,6 +6,7 @@ CMap::CMap(unsigned int w,unsigned int h)
 
     MapWidth  = w;
     MapHeight = h;
+    CurrentSpanwPointID = 0;
 
     Map = new SMapTile[w*h];
 }
@@ -51,6 +52,21 @@ CMap::CMap(const char* file_name)
                     tile.tileID   = 4;
                     valid = true;
                     break;
+                case '5':
+                    tile.passable = 1;
+                    tile.tileID   = 4;
+                    valid = true;
+
+                    {
+                        int y_pos = index / MapWidth;
+                        int x_pos = index - (y_pos * MapHeight);
+                        SSpawnPos pos;
+                        pos.x = x_pos;
+                        pos.y = y_pos;
+                        SpawnPoints.push_back(pos);
+                    }
+
+                    break;
                 default:
                     valid = false;
                     break;
@@ -65,12 +81,22 @@ CMap::CMap(const char* file_name)
                 index++;
             }
         }
+        for(unsigned int i = 0 ; i < SpawnPoints.size();i++)
+        {
+            std::swap(SpawnPoints[rand()%SpawnPoints.size()],SpawnPoints[rand()%SpawnPoints.size()]);
+        }
     }
 }
 
 CMap::~CMap()
 {
     //dtor
+}
+SSpawnPos CMap::getRandomSpawnPoint()
+{
+        if(CurrentSpanwPointID == SpawnPoints.size())
+            CurrentSpanwPointID = 0;
+        return SpawnPoints[CurrentSpanwPointID++];
 }
 
 SMapTile* CMap::getMapTile(unsigned int x,unsigned int y)

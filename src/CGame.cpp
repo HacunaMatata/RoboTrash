@@ -44,13 +44,13 @@ bool CGame::initGL()
 }
 bool CGame::initScene()
 {
-    GameMap = new CMap("res\\maps\\map1.txt");
+    GameMap = new CMap("res\\maps\\map3.txt");
     UtMgr   = new CUnitManager(GameMap);
 
-    UtMgr->createUnit(10,10);
-    UtMgr->createUnit(5,5);
-    UtMgr->createUnit(10,5);
-    UtMgr->createUnit(5,10);
+    UtMgr->createUnit();
+    UtMgr->createUnit();
+    UtMgr->createUnit();
+    UtMgr->createUnit();
 
 
 }
@@ -83,7 +83,7 @@ bool CGame::run()
         //!-------------
         unsigned int x = 100;
         unsigned int y = 100;
-        SDL_Delay(50);
+        SDL_Delay(250);
         SDL_GL_SwapWindow(Window);
     }
 

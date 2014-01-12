@@ -305,7 +305,7 @@
 
 1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 
-1389536728 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
+1389540682 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
 	"CGame.h"
 
 1389532721 f:\programming\cpp\project\robotrash\src\cgame.h
@@ -630,18 +630,21 @@
 	"begin_code.h"
 	"close_code.h"
 
-1389532721 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
+1389542300 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
 	"CMap.h"
 	<stdio.h>
 
-1389532721 f:\programming\cpp\project\robotrash\src\cmap.h
+1389540361 f:\programming\cpp\project\robotrash\src\cmap.h
+	<vector>
 	<GL\gl.h>
+	<stdlib.h>
 
-1389537704 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
+1389542011 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
 	"CUnitManager.h"
 
-1389536702 f:\programming\cpp\project\robotrash\src\cunitmanager.h
+1389541631 f:\programming\cpp\project\robotrash\src\cunitmanager.h
 	<stdlib.h>
+	<stdio.h>
 	<vector>
 	"CMap.h"
 

@@ -13,6 +13,8 @@ struct SUnit
         unsigned int x;
         unsigned int y;
         unsigned int r;
+        unsigned int lr;
+        unsigned int fm;
 
         unsigned int unitID;
 };

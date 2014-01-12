@@ -76,92 +76,115 @@ void CUnitManager::process_ai()
     {
         if(units[i].health > 0)
         {
-
-            //check avalible ways
-            int ways_alv = 0;
-            if(Map->getMapTile(units[i].x-1,units[i].y)->passable)
-                ways_alv++;
-            if(Map->getMapTile(units[i].x,units[i].y-1)->passable)
-                ways_alv++;
-            if(Map->getMapTile(units[i].x+1,units[i].y)->passable)
-                ways_alv++;
-            if(Map->getMapTile(units[i].x,units[i].y+1)->passable)
-                ways_alv++;
-
-            //avalible path pool
-            vector<int> path_pool;
-            if(Map->getMapTile(units[i].x,units[i].y+1)->passable && !(ways_alv > 1 && units[i].r == 1))
-                path_pool.push_back(1);
-            if(Map->getMapTile(units[i].x+1,units[i].y)->passable && !(ways_alv > 1 && units[i].r == 2))
-                path_pool.push_back(2);
-            if(Map->getMapTile(units[i].x,units[i].y-1)->passable && !(ways_alv > 1 && units[i].r == 3))
-                path_pool.push_back(3);
-            if(Map->getMapTile(units[i].x-1,units[i].y)->passable && !(ways_alv > 1 && units[i].r == 4))
-                path_pool.push_back(4);
-
-            //fix pool
-
-            //chance to change way modifer
-            int chng_dir_chance_mod = 5 - path_pool.size();
-            //chance to change direction
-            bool chng_dir = false;
-            chng_dir = ((rand() % chng_dir_chance_mod) == 1);
-            //check if way avalible
-            if(!chng_dir)
+            switch(units[i].r)
             {
-                switch(units[i].r)
+            case 1:
+                if(units[i].fm or (Map->getMapTile(units[i].x,units[i].y+1)->passable and not Map->getMapTile(units[i].x-1,units[i].y)->passable) )
                 {
-                case 1:
-                    if(!Map->getMapTile(units[i].x,units[i].y+1)->passable)
-                        chng_dir = true;
-                    break;
-                case 2:
-                    if(!Map->getMapTile(units[i].x+1,units[i].y)->passable)
-                        chng_dir = true;
-                    break;
-                case 3:
-                    if(!Map->getMapTile(units[i].x,units[i].y-1)->passable)
-                        chng_dir = true;
-                    break;
-                case 4:
-                    if(!Map->getMapTile(units[i].x-1,units[i].y)->passable)
-                        chng_dir = true;
-                    break;
-                default:
-                    break;
-                }
-            }
-
-            if(chng_dir)
-            {
-                //get random way from pool
-                unsigned int random_way = path_pool[rand() % path_pool.size()];
-                units[i].r = random_way;
-            }
-            else
-            {
-                //or move
-                switch(units[i].r)
-                {
-                case 1:
                     units[i].y++;
-                    break;
-                case 2:
-                    units[i].x++;
-                    break;
-                case 3:
-                    units[i].y--;
-                    break;
-                case 4:
-                    units[i].x--;
-                    break;
-                default:
+                    units[i].lr = 1;
+                    units[i].fm = 0;
                     break;
                 }
-            }
+                else
+                {
+                    if(Map->getMapTile(units[i].x-1,units[i].y)->passable)
+                    {
+                        units[i].r = 4;
+                        units[i].fm = 1;
+                        break;
+                    }
+                    if(not Map->getMapTile(units[i].x-1,units[i].y)->passable)
+                    {
+                        units[i].r = 2;
+                        break;
+                    }
+                }
 
+                break;
+            case 2:
+                if(units[i].fm or (Map->getMapTile(units[i].x+1,units[i].y)->passable and not Map->getMapTile(units[i].x,units[i].y+1)->passable))
+                {
+                    units[i].x++;
+                    units[i].lr = 2;
+                    units[i].fm = 0;
+                    break;
+                }
+                else
+                {
+                    if( Map->getMapTile(units[i].x,units[i].y+1)->passable)
+                    {
+                        units[i].r = 1;
+                        units[i].fm = 1;
+                        break;
+                    }
+                    if( not Map->getMapTile(units[i].x,units[i].y+1)->passable)
+                    {
+                        units[i].r = 3;
+                        break;
+                    }
+                }
+
+                break;
+            case 3:
+                if(units[i].fm or (Map->getMapTile(units[i].x,units[i].y-1)->passable and not Map->getMapTile(units[i].x+1,units[i].y)->passable))
+                {
+                    units[i].y--;
+                    units[i].lr = 3;
+                    units[i].fm = 0;
+                    break;
+                }
+                else
+                {
+                    if(Map->getMapTile(units[i].x+1,units[i].y)->passable)
+                    {
+                        units[i].r = 2;
+                        units[i].fm = 1;
+                        break;
+                    }
+                    if(not Map->getMapTile(units[i].x+1,units[i].y)->passable)
+                    {
+                        units[i].r = 4;
+                        break;
+                    }
+                }
+
+                break;
+            case 4:
+
+                if(units[i].fm or (Map->getMapTile(units[i].x-1,units[i].y)->passable and not Map->getMapTile(units[i].x,units[i].y-1)->passable))
+                {
+                    units[i].x--;
+                    units[i].lr = 4;
+                    units[i].fm = 0;
+                    break;
+                }
+                else
+                {
+                    if(Map->getMapTile(units[i].x,units[i].y-1)->passable)
+                    {
+                        units[i].r = 3;
+                        units[i].fm = 1;
+                        break;
+                    }
+                    if(not Map->getMapTile(units[i].x,units[i].y-1)->passable)
+                    {
+                        units[i].r = 1;
+                        break;
+                    }
+                }
+
+            default:
+                units[i].r = (rand()%4)+1;
+                break;
+            }
+            if(units[i].r == 5)
+                units[i].r = 1;
         }
+
+
     }
+
 }
 
 void CUnitManager::render()

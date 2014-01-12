@@ -20,7 +20,7 @@ CGame::~CGame()
 bool CGame::initWindow()
 {
     SDL_Init(SDL_INIT_VIDEO);
-    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,1024,768,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,640,640,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,32);
@@ -33,11 +33,11 @@ bool CGame::initWindow()
 
 bool CGame::initGL()
 {
-    glViewport(0,0,1024,768);
+    glViewport(0,0,640,640);
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0,1024,0,768,-10,10);
+    glOrtho(0,640,0,640,-10,10);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

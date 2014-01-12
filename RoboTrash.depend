@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1386683400 source:f:\programming\cpp\project\robotrash\main.cpp
+1389532721 source:f:\programming\cpp\project\robotrash\main.cpp
 	<iostream>
 	"src\CGame.h"
 
@@ -305,17 +305,17 @@
 
 1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 
-1386705948 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
+1389536728 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
 	"CGame.h"
 
-1386689346 f:\programming\cpp\project\robotrash\src\cgame.h
+1389532721 f:\programming\cpp\project\robotrash\src\cgame.h
 	"SDL2\SDL.h"
 	"GL\GL.h"
 	"GL\GLU.h"
 	"CMap.h"
 	"CUnitManager.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -346,12 +346,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_main.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_stdinc.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -378,26 +378,26 @@
 	<stdlib.h>
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_config.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_platform.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\begin_code.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\begin_code.h
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\close_code.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\close_code.h
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_assert.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_atomic.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
@@ -405,7 +405,7 @@
 	<libkern/OSAtomic.h>
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_audio.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -415,24 +415,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_error.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_endian.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_mutex.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_thread.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -441,18 +441,18 @@
 	<process.h>
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_rwops.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_clipboard.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_cpuinfo.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -464,7 +464,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_events.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -478,7 +478,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_video.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -486,11 +486,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_pixels.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_pixels.h
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_rect.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -498,7 +498,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_surface.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -507,11 +507,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_blendmode.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_keyboard.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -519,38 +519,38 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_keycode.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_scancode.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_mouse.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_joystick.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_gamecontroller.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_quit.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_gesture.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -558,60 +558,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_touch.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_filesystem.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_haptic.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_hints.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_loadso.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_log.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_messagebox.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_power.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062758 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_render.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_system.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -619,28 +619,28 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_timer.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1385062759 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_version.h
+1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1386685104 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
+1389532721 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
 	"CMap.h"
 	<stdio.h>
 
-1386682788 f:\programming\cpp\project\robotrash\src\cmap.h
+1389532721 f:\programming\cpp\project\robotrash\src\cmap.h
 	<GL\gl.h>
 
-1386779609 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
+1389537704 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
 	"CUnitManager.h"
 
-1386704766 f:\programming\cpp\project\robotrash\src\cunitmanager.h
+1389536702 f:\programming\cpp\project\robotrash\src\cunitmanager.h
 	<stdlib.h>
 	<vector>
 	"CMap.h"

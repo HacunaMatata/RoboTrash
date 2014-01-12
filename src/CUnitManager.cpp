@@ -1,8 +1,9 @@
 #include "CUnitManager.h"
 
-CUnitManager::CUnitManager(CMap* _Map)
+CUnitManager::CUnitManager(CMap* _Map,CEffectManager* _EffMgr)
 {
     Map = _Map;
+    EffMgr = _EffMgr;
     lastID = 1;
 
     SimSpeed = 250;
@@ -19,6 +20,7 @@ unsigned int CUnitManager::createUnit()
     SUnit unit;
 
     unit.health = 3;
+    unit.arrmor = 1;
 
     SSpawnPos point = Map->getRandomSpawnPoint();
 
@@ -96,69 +98,72 @@ void CUnitManager::process_ai()
             units[i].lx = units[i].x;
             units[i].ly = units[i].y;
 
+
+            SUnit* trg = NULL;
+            unsigned int range = 0;
+
             switch(units[i].r)
             {
             case 1:
-                if(getUnitByPos(units[i].x,units[i].y+1) || getUnitByPos(units[i].x,units[i].y+2))
-                {
-                    SUnit* c1 = getUnitByPos(units[i].x,units[i].y+1);
-                    SUnit* c2 = getUnitByPos(units[i].x,units[i].y+2);
 
-                    if(c1)
-                        c1->health--;
-                    else
-                        if(Map->getMapTile(units[i].x,units[i].y+1)->passable)
-                            c2->health--;
 
-                    continue;
-                }
+                    for(unsigned int r = 1; r < 5; r++)
+                    {
+                        range = r;
+                        trg = getUnitByPos(units[i].x,units[i].y+r);
+                        if(!Map->getMapTile(units[i].x,units[i].y+r)->passable or trg)
+                            break;
+                    }
+                    if(trg)
+                    {
+                        unit_shot(&units[i],trg,range);
+                        continue;
+                    }
                 break;
+
             case 2:
-                if(getUnitByPos(units[i].x+1,units[i].y) || getUnitByPos(units[i].x+2,units[i].y))
-                {
-                    SUnit* c1 = getUnitByPos(units[i].x+1,units[i].y);
-                    SUnit* c2 = getUnitByPos(units[i].x+2,units[i].y);
-
-                    if(c1)
-                        c1->health--;
-                    else
-                        if(Map->getMapTile(units[i].x+1,units[i].y)->passable)
-                            c2->health--;
-
-                    continue;
-                }
+                    for(unsigned int r = 1; r < 5; r++)
+                    {
+                        range = r;
+                        trg = getUnitByPos(units[i].x+r,units[i].y);
+                        if(!Map->getMapTile(units[i].x+r,units[i].y)->passable or trg)
+                            break;
+                    }
+                    if(trg)
+                    {
+                        unit_shot(&units[i],trg,range);
+                        continue;
+                    }
                 break;
 
             case 3:
-                if(getUnitByPos(units[i].x,units[i].y-1) || getUnitByPos(units[i].x,units[i].y-2))
-                {
-                    SUnit* c1 = getUnitByPos(units[i].x,units[i].y-1);
-                    SUnit* c2 = getUnitByPos(units[i].x,units[i].y-2);
-
-                    if(c1)
-                        c1->health--;
-                    else
-                        if(Map->getMapTile(units[i].x,units[i].y-1)->passable)
-                        c2->health--;
-
-                    continue;
-                }
+                    for(unsigned int r = 1; r < 5; r++)
+                    {
+                        range = r;
+                        trg = getUnitByPos(units[i].x,units[i].y-r);
+                        if(!Map->getMapTile(units[i].x,units[i].y-r)->passable or trg)
+                            break;
+                    }
+                    if(trg)
+                    {
+                        unit_shot(&units[i],trg,range);
+                        continue;
+                    }
                 break;
 
             case 4:
-                if(getUnitByPos(units[i].x-1,units[i].y) || getUnitByPos(units[i].x-2,units[i].y))
-                {
-                    SUnit* c1 = getUnitByPos(units[i].x-1,units[i].y);
-                    SUnit* c2 = getUnitByPos(units[i].x-2,units[i].y);
-
-                    if(c1)
-                        c1->health--;
-                    else
-                        if(Map->getMapTile(units[i].x-1,units[i].y)->passable)
-                        c2->health--;
-
-                    continue;
-                }
+                    for(unsigned int r = 1; r < 5; r++)
+                    {
+                        range = r;
+                        trg = getUnitByPos(units[i].x-r,units[i].y);
+                        if(!Map->getMapTile(units[i].x-r,units[i].y)->passable or trg)
+                            break;
+                    }
+                    if(trg)
+                    {
+                        unit_shot(&units[i],trg,range);
+                        continue;
+                    }
                 break;
             }
 
@@ -274,14 +279,14 @@ void CUnitManager::process_ai()
 
 }
 
-void CUnitManager::render(float dt)
+void CUnitManager::update(float dt)
 {
-    Accum += dt;
+    Accum = dt;
+}
 
-    while(Accum >= SimSpeed)
-    {
-        Accum-=SimSpeed;
-    }
+void CUnitManager::render()
+{
+
 
     glBegin(GL_TRIANGLES);
     for(unsigned int i = 0 ; i < units.size(); i++)
@@ -332,10 +337,75 @@ void CUnitManager::render(float dt)
             default:
                 break;
             }
+                glVertex3f(660+16  ,16 + 60 * i,0);
+                glVertex3f(660+48 ,16 + 60 * i,0);
+                glVertex3f(660+32 ,48+ 60 * i,0);
+
+                glColor3ub(255,0,0);
+                for(unsigned int h = 0; h < units[i].health;h++)
+                {
+                    glVertex3f(716+8 + 16 * h ,24 + 60 * i,0);
+                    glVertex3f(716+24+ 16 * h ,24 + 60 * i,0);
+                    glVertex3f(716+16+ 16 * h ,8  + 60 * i,0);
+                }
+
+                glColor3ub(255,255,0);
+                for(unsigned int h = 0; h < units[i].arrmor;h++)
+                {
+                    glVertex3f(716+8 + 10 * h ,52 + 60 * i,0);
+                    glVertex3f(716+24+ 10 * h ,52 + 60 * i,0);
+                    glVertex3f(716+16+ 10 * h ,34 + 60 * i,0);
+                }
+
 
         }
     }
     //player
 
     glEnd();
+}
+void CUnitManager::unit_shot(SUnit* Attacking,SUnit* Target,unsigned int dist)
+{
+    int dist_mod = 16;
+
+    switch(dist)
+    {
+    case 1:
+        dist_mod = 18;
+        break;
+    case 2:
+        dist_mod = 28;
+        break;
+    case 3:
+        dist_mod = 46;
+        break;
+    case 4:
+        dist_mod = 58;
+        break;
+    }
+
+    int rand_x = (rand()%dist_mod) - dist_mod/2;
+    int rand_y = (rand()%dist_mod) - dist_mod/2;
+
+    int curr_x = Target->x*32+16;
+    int curr_y = Target->y*32+16;
+    int diff_x = Target->x*32+rand_x;
+    int diff_y = Target->y*32+rand_y;
+
+    EffMgr->addeffect_laser(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
+
+    if (sqrt( pow((curr_x - diff_x),2) + pow((curr_y - diff_y),2)) < 12)
+    {
+        if(Target->arrmor > 0)
+            Target->arrmor--;
+        else
+            Target->health--;
+
+        if(Target->health == 0)
+        {
+            Target->killerID = Attacking->unitID;
+            Attacking->arrmor++;
+
+        }
+    }
 }

@@ -305,15 +305,16 @@
 
 1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 
-1389548942 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
+1389557683 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
 	"CGame.h"
 	"Time.h"
 
-1389532721 f:\programming\cpp\project\robotrash\src\cgame.h
+1389552017 f:\programming\cpp\project\robotrash\src\cgame.h
 	"SDL2\SDL.h"
 	"GL\GL.h"
 	"GL\GLU.h"
 	"CMap.h"
+	"CEffectManager.h"
 	"CUnitManager.h"
 
 1389532721 f:\programming\cpp\project\robotrash\sdl\include\sdl2\sdl.h
@@ -640,14 +641,24 @@
 	<GL\gl.h>
 	<stdlib.h>
 
-1389548969 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
+1389554022 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
 	"CUnitManager.h"
 
-1389547900 f:\programming\cpp\project\robotrash\src\cunitmanager.h
+1389559441 f:\programming\cpp\project\robotrash\src\cunitmanager.h
 	<stdlib.h>
 	<stdio.h>
 	<vector>
+	<math.h>
 	"CMap.h"
+	"CEffectManager.h"
 
 1389542654 f:\programming\cpp\project\robotrash\src\unittexture.h
+
+1389553776 source:f:\programming\cpp\project\robotrash\src\ceffectmanager.cpp
+	"CEffectManager.h"
+	<stdio.h>
+
+1389551911 f:\programming\cpp\project\robotrash\src\ceffectmanager.h
+	<GL\gl.h>
+	<vector>
 

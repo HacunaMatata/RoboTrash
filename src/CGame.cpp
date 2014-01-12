@@ -21,7 +21,7 @@ CGame::~CGame()
 bool CGame::initWindow()
 {
     SDL_Init(SDL_INIT_VIDEO);
-    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,640,640,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+    Window = SDL_CreateWindow("OpenGL",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,640,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,32);
@@ -34,28 +34,32 @@ bool CGame::initWindow()
 
 bool CGame::initGL()
 {
-    glViewport(0,0,640,640);
+    glViewport(0,0,800,640);
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0,640,0,640,-10,10);
+    glOrtho(0,800,0,640,-10,10);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     glEnable(GL_TEXTURE_2D);
+
+    glEnable(GL_BLEND);
+     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 bool CGame::initScene()
 {
     GameMap = new CMap("res\\maps\\map3.txt");
-    UtMgr   = new CUnitManager(GameMap);
+    EffMgr  = new CEffectManager();
+    UtMgr   = new CUnitManager(GameMap,EffMgr);
 
     UtMgr->createUnit();
     UtMgr->createUnit();
     UtMgr->createUnit();
     UtMgr->createUnit();
 
-
+EffMgr->addeffect_laser(100,100,400,400);
 }
 bool CGame::run()
 {
@@ -84,16 +88,22 @@ bool CGame::run()
         if(acc > 250)
         {
             acc -= 250;
-        UtMgr->process_ai();
+            UtMgr->process_ai();
+
         }
+
         acc+=dt;
+
+        UtMgr->update(acc);
+        EffMgr->update(dt);
         //-----------------------------Main
         glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
         //! Render here
         GameMap->render();
-        UtMgr->render(dt);
+        UtMgr->render();
+        EffMgr->render();
         //!-------------
         unsigned int x = 100;
         unsigned int y = 100;

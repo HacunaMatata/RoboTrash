@@ -6,6 +6,7 @@
 #include "GL\GLU.h"
 
 #include "CMap.h"
+#include "CEffectManager.h"
 #include "CUnitManager.h"
 
 class CGame
@@ -23,6 +24,7 @@ class CGame
     SDL_Window*    Window;
     SDL_GLContext  Context;
     CMap*          GameMap;
+    CEffectManager* EffMgr;
     CUnitManager*  UtMgr;
 };
 

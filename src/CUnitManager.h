@@ -4,12 +4,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
+#include <math.h>
 #include "CMap.h"
+#include "CEffectManager.h"
 
 using namespace std;
 struct SUnit
 {
         unsigned int health;
+        unsigned int arrmor;
 
         unsigned int x;
         unsigned int y;
@@ -26,12 +29,13 @@ struct SUnit
 
 
         unsigned int unitID;
+        unsigned int killerID;
 };
 
 class CUnitManager
 {
     public:
-        CUnitManager(CMap* Map);
+        CUnitManager(CMap* Map,CEffectManager* EffMgr);
         virtual ~CUnitManager();
 
         unsigned int createUnit();
@@ -41,12 +45,15 @@ class CUnitManager
         SUnit* getUnitById(unsigned int unitId);
 
         void process_ai();
-
-        void render(float dt);
+        void update(float dt);
+        void render();
 
     protected:
     private:
+        void unit_shot(SUnit* Attacking,SUnit* Target,unsigned int dist);
+
         CMap* Map;
+        CEffectManager* EffMgr;
         unsigned int lastID;
 
         SUnit         player;

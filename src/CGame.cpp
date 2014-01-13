@@ -7,6 +7,7 @@
 
 #include "CGame.h"
 #include "Time.h"
+#include <stdlib.h>
 
 CGame::CGame()
 {
@@ -48,18 +49,17 @@ bool CGame::initGL()
     glEnable(GL_BLEND);
      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
-bool CGame::initScene()
+bool CGame::initScene(char* map,unsigned int units)
 {
-    GameMap = new CMap("res\\maps\\map3.txt");
+    GameMap = new CMap(map);
     EffMgr  = new CEffectManager();
     UtMgr   = new CUnitManager(GameMap,EffMgr);
 
+    for(int i =0; i < units;i++)
+    {
     UtMgr->createUnit();
-    UtMgr->createUnit();
-    UtMgr->createUnit();
-    UtMgr->createUnit();
+    }
 
-EffMgr->addeffect_laser(100,100,400,400);
 }
 bool CGame::run()
 {
@@ -89,7 +89,6 @@ bool CGame::run()
         {
             acc -= 250;
             UtMgr->process_ai();
-
         }
 
         acc+=dt;

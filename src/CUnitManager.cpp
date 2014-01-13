@@ -1,4 +1,5 @@
 #include "CUnitManager.h"
+#include <time.h>
 
 CUnitManager::CUnitManager(CMap* _Map,CEffectManager* _EffMgr)
 {
@@ -8,6 +9,7 @@ CUnitManager::CUnitManager(CMap* _Map,CEffectManager* _EffMgr)
 
     SimSpeed = 250;
     Accum = 0;
+    srand(time(NULL));
 }
 
 CUnitManager::~CUnitManager()
@@ -19,8 +21,11 @@ unsigned int CUnitManager::createUnit()
 {
     SUnit unit;
 
+    unit.damage = 1;
     unit.health = 3;
     unit.arrmor = 1;
+
+    unit.kills  = 0;
 
     SSpawnPos point = Map->getRandomSpawnPoint();
 
@@ -107,63 +112,63 @@ void CUnitManager::process_ai()
             case 1:
 
 
-                    for(unsigned int r = 1; r < 5; r++)
-                    {
-                        range = r;
-                        trg = getUnitByPos(units[i].x,units[i].y+r);
-                        if(!Map->getMapTile(units[i].x,units[i].y+r)->passable or trg)
-                            break;
-                    }
-                    if(trg)
-                    {
-                        unit_shot(&units[i],trg,range);
-                        continue;
-                    }
+                for(unsigned int r = 1; r < 5; r++)
+                {
+                    range = r;
+                    trg = getUnitByPos(units[i].x,units[i].y+r);
+                    if(!Map->getMapTile(units[i].x,units[i].y+r)->passable or trg)
+                        break;
+                }
+                if(trg)
+                {
+                    unit_shot(&units[i],trg,range);
+                    continue;
+                }
                 break;
 
             case 2:
-                    for(unsigned int r = 1; r < 5; r++)
-                    {
-                        range = r;
-                        trg = getUnitByPos(units[i].x+r,units[i].y);
-                        if(!Map->getMapTile(units[i].x+r,units[i].y)->passable or trg)
-                            break;
-                    }
-                    if(trg)
-                    {
-                        unit_shot(&units[i],trg,range);
-                        continue;
-                    }
+                for(unsigned int r = 1; r < 5; r++)
+                {
+                    range = r;
+                    trg = getUnitByPos(units[i].x+r,units[i].y);
+                    if(!Map->getMapTile(units[i].x+r,units[i].y)->passable or trg)
+                        break;
+                }
+                if(trg)
+                {
+                    unit_shot(&units[i],trg,range);
+                    continue;
+                }
                 break;
 
             case 3:
-                    for(unsigned int r = 1; r < 5; r++)
-                    {
-                        range = r;
-                        trg = getUnitByPos(units[i].x,units[i].y-r);
-                        if(!Map->getMapTile(units[i].x,units[i].y-r)->passable or trg)
-                            break;
-                    }
-                    if(trg)
-                    {
-                        unit_shot(&units[i],trg,range);
-                        continue;
-                    }
+                for(unsigned int r = 1; r < 5; r++)
+                {
+                    range = r;
+                    trg = getUnitByPos(units[i].x,units[i].y-r);
+                    if(!Map->getMapTile(units[i].x,units[i].y-r)->passable or trg)
+                        break;
+                }
+                if(trg)
+                {
+                    unit_shot(&units[i],trg,range);
+                    continue;
+                }
                 break;
 
             case 4:
-                    for(unsigned int r = 1; r < 5; r++)
-                    {
-                        range = r;
-                        trg = getUnitByPos(units[i].x-r,units[i].y);
-                        if(!Map->getMapTile(units[i].x-r,units[i].y)->passable or trg)
-                            break;
-                    }
-                    if(trg)
-                    {
-                        unit_shot(&units[i],trg,range);
-                        continue;
-                    }
+                for(unsigned int r = 1; r < 5; r++)
+                {
+                    range = r;
+                    trg = getUnitByPos(units[i].x-r,units[i].y);
+                    if(!Map->getMapTile(units[i].x-r,units[i].y)->passable or trg)
+                        break;
+                }
+                if(trg)
+                {
+                    unit_shot(&units[i],trg,range);
+                    continue;
+                }
                 break;
             }
 
@@ -288,6 +293,7 @@ void CUnitManager::render()
 {
 
 
+    float shift_un = 640/units.size();
     glBegin(GL_TRIANGLES);
     for(unsigned int i = 0 ; i < units.size(); i++)
     {
@@ -337,25 +343,71 @@ void CUnitManager::render()
             default:
                 break;
             }
-                glVertex3f(660+16  ,16 + 60 * i,0);
-                glVertex3f(660+48 ,16 + 60 * i,0);
-                glVertex3f(660+32 ,48+ 60 * i,0);
+            glVertex3f(660+16  ,16 + shift_un * i,0);
+            glVertex3f(660+48 ,16 + shift_un * i,0);
+            glVertex3f(660+32 ,48+ shift_un * i,0);
 
-                glColor3ub(255,0,0);
-                for(unsigned int h = 0; h < units[i].health;h++)
-                {
-                    glVertex3f(716+8 + 16 * h ,24 + 60 * i,0);
-                    glVertex3f(716+24+ 16 * h ,24 + 60 * i,0);
-                    glVertex3f(716+16+ 16 * h ,8  + 60 * i,0);
-                }
+            glEnd();
 
-                glColor3ub(255,255,0);
-                for(unsigned int h = 0; h < units[i].arrmor;h++)
-                {
-                    glVertex3f(716+8 + 10 * h ,52 + 60 * i,0);
-                    glVertex3f(716+24+ 10 * h ,52 + 60 * i,0);
-                    glVertex3f(716+16+ 10 * h ,34 + 60 * i,0);
-                }
+            glColor3ub(255,255,0);
+
+            glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+            glLineWidth(units[i].arrmor);
+            if(units[i].arrmor != 0)
+            {
+                glBegin(GL_QUADS);
+                glVertex2f(last_x+4,last_y+4);
+                glVertex2f(last_x+28,last_y+4);
+                glVertex2f(last_x+28,last_y+28);
+                glVertex2f(last_x+4,last_y+28);
+                glEnd();
+            }
+            glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+            glBegin(GL_TRIANGLES);
+
+            glColor3ub(255,0,0);
+            float shift_hp = 36 / units[i].health;
+            for(unsigned int h = 0; h < units[i].health; h++)
+            {
+                glVertex3f(716+8 + shift_hp * h ,8 + shift_un * i,0);
+                glVertex3f(716+8 + shift_hp * h ,24 + shift_un * i,0);
+                glVertex3f(716+24+ shift_hp * h ,16  + shift_un * i,0);
+            }
+
+
+            glColor3ub(255,255,0);
+            if(units[i].arrmor > 0)
+            {
+            float shift_ar = 36 / units[i].arrmor;
+            for(unsigned int h = 0; h < units[i].arrmor; h++)
+            {
+                glVertex3f(716+8 + shift_ar * h ,34 + shift_un * i,0);
+                glVertex3f(716+8 + shift_ar * h ,50 + shift_un * i,0);
+                glVertex3f(716+24+ shift_ar * h ,42 + shift_un * i,0);
+            }
+            }
+            glColor3ub(0,0,255);
+
+            if(units[i].kills > 0)
+            {
+            float shift_kl = 36 / units[i].kills;
+            for(unsigned int h = 0; h < units[i].kills; h++)
+            {
+
+            if(units[i].kills < 4)
+            glColor3ub(255,0,0);
+            else if(units[i].kills >= 4 and units[i].kills < 8)
+            glColor3ub(204,204,255);
+            else if(units[i].kills >= 8 and units[i].kills < 12)
+            glColor3ub(0,0,255);
+            else if(units[i].kills >= 12)
+            glColor3ub(125,255,0);
+
+                glVertex3f(716-40  ,24 + shift_un * i + shift_kl*h,0);
+                glVertex3f(716-54  ,24 + shift_un * i + shift_kl*h,0);
+                glVertex3f(716-54  ,8  + shift_un * i + shift_kl*h,0);
+            }
+            }
 
 
         }
@@ -367,20 +419,35 @@ void CUnitManager::render()
 void CUnitManager::unit_shot(SUnit* Attacking,SUnit* Target,unsigned int dist)
 {
     int dist_mod = 16;
+    int dist_mod_fix = 0;
+
+    if(Attacking->kills < 4)
+        dist_mod_fix = 0;
+    else if(Attacking->kills >= 4 and Attacking->kills < 8)
+        dist_mod_fix = 8;
+    else if(Attacking->kills >= 8 and Attacking->kills < 12)
+        dist_mod_fix = 16;
+    else if(Attacking->kills >= 12)
+        dist_mod_fix = 62;
+
+
 
     switch(dist)
     {
     case 1:
-        dist_mod = 18;
+        dist_mod = 18 - (dist_mod_fix > 18)?18:dist_mod_fix;
         break;
     case 2:
-        dist_mod = 28;
+        dist_mod = 24 - (dist_mod_fix > 24)?24:dist_mod_fix;
         break;
     case 3:
-        dist_mod = 46;
+        dist_mod = 44 - (dist_mod_fix > 44)?44:dist_mod_fix;
         break;
     case 4:
-        dist_mod = 58;
+        dist_mod = 64 - (dist_mod_fix > 64)?64:dist_mod_fix;
+        break;
+    case 5:
+        dist_mod = 86 - (dist_mod_fix > 86)?86:dist_mod_fix;
         break;
     }
 
@@ -389,23 +456,58 @@ void CUnitManager::unit_shot(SUnit* Attacking,SUnit* Target,unsigned int dist)
 
     int curr_x = Target->x*32+16;
     int curr_y = Target->y*32+16;
-    int diff_x = Target->x*32+rand_x;
-    int diff_y = Target->y*32+rand_y;
+    int diff_x = Target->x*32+16+rand_x;
+    int diff_y = Target->y*32+16+rand_y;
 
-    EffMgr->addeffect_laser(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
+    if(Attacking->kills < 4)
+        EffMgr->addeffect_laser(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
+    else if(Attacking->kills >= 4 and Attacking->kills < 8)
+        EffMgr->addeffect_lightning(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
+    else if(Attacking->kills >= 8 and Attacking->kills < 12)
+        EffMgr->addeffect_railgun(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
+    else if(Attacking->kills >= 12)
+        EffMgr->addeffect_bfg(Attacking->x*32+16,Attacking->y*32+16,Target->x*32+16+rand_x,Target->y*32+16+rand_y);
 
-    if (sqrt( pow((curr_x - diff_x),2) + pow((curr_y - diff_y),2)) < 12)
+
+    if (sqrt( pow((curr_x - diff_x),2) + pow((curr_y - diff_y),2)) < 16)
     {
         if(Target->arrmor > 0)
-            Target->arrmor--;
+        {
+            Target->arrmor-=Attacking->damage;
+            EffMgr->addeffect_shildabsorb(Target->x*32+16,Target->y*32+16);
+        }
         else
-            Target->health--;
+            Target->health-=Attacking->damage;
 
-        if(Target->health == 0)
+
+        if(Target->health <= 0)
         {
             Target->killerID = Attacking->unitID;
             Attacking->arrmor++;
+            Attacking->kills++;
 
+            if(Attacking->kills > 2)
+            {
+                Attacking->health++;
+            }
+
+            if(Attacking->kills < 4)
+            Attacking->damage = 1;
+            else if(Attacking->kills >= 4 and Attacking->kills < 8)
+            Attacking->damage = 2;
+            else if(Attacking->kills >= 8 and Attacking->kills < 12)
+            Attacking->damage = 4;
+            else if(Attacking->kills >= 12)
+            Attacking->damage = 8;
         }
+
+
+
+        if(Target->arrmor < 0)
+            Target->arrmor = 0;
+        if(Target->health < 0)
+            Target->health = 0;
+
+
     }
 }

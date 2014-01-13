@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1389532721 source:f:\programming\cpp\project\robotrash\main.cpp
+1389571328 source:f:\programming\cpp\project\robotrash\main.cpp
 	<iostream>
 	"src\CGame.h"
 
@@ -305,11 +305,12 @@
 
 1381589088 f:\programming\cpp\project\robotrash\novaengine\include\version.h
 
-1389557683 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
+1389571205 source:f:\programming\cpp\project\robotrash\src\cgame.cpp
 	"CGame.h"
 	"Time.h"
+	<stdlib.h>
 
-1389552017 f:\programming\cpp\project\robotrash\src\cgame.h
+1389571201 f:\programming\cpp\project\robotrash\src\cgame.h
 	"SDL2\SDL.h"
 	"GL\GL.h"
 	"GL\GLU.h"
@@ -632,19 +633,22 @@
 	"begin_code.h"
 	"close_code.h"
 
-1389546361 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
+1389560552 source:f:\programming\cpp\project\robotrash\src\cmap.cpp
 	"CMap.h"
 	<stdio.h>
+	<stdlib.h>
+	<time.h>
 
 1389540361 f:\programming\cpp\project\robotrash\src\cmap.h
 	<vector>
 	<GL\gl.h>
 	<stdlib.h>
 
-1389554022 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
+1389570992 source:f:\programming\cpp\project\robotrash\src\cunitmanager.cpp
 	"CUnitManager.h"
+	<time.h>
 
-1389559441 f:\programming\cpp\project\robotrash\src\cunitmanager.h
+1389561376 f:\programming\cpp\project\robotrash\src\cunitmanager.h
 	<stdlib.h>
 	<stdio.h>
 	<vector>
@@ -654,11 +658,12 @@
 
 1389542654 f:\programming\cpp\project\robotrash\src\unittexture.h
 
-1389553776 source:f:\programming\cpp\project\robotrash\src\ceffectmanager.cpp
+1389569007 source:f:\programming\cpp\project\robotrash\src\ceffectmanager.cpp
 	"CEffectManager.h"
+	<stdlib.h>
 	<stdio.h>
 
-1389551911 f:\programming\cpp\project\robotrash\src\ceffectmanager.h
+1389568830 f:\programming\cpp\project\robotrash\src\ceffectmanager.h
 	<GL\gl.h>
 	<vector>
 

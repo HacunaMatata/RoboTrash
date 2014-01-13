@@ -11,17 +11,17 @@
 using namespace std;
 struct SUnit
 {
-        unsigned int health;
-        unsigned int arrmor;
+        int damage;
+        int health;
+        int arrmor;
 
         unsigned int x;
         unsigned int y;
         unsigned int lx;
         unsigned int ly;
 
-
-        unsigned int r;
-        unsigned int fm;
+        int r;
+        int fm;
 
         unsigned char Rcolor;
         unsigned char Gcolor;
@@ -30,6 +30,8 @@ struct SUnit
 
         unsigned int unitID;
         unsigned int killerID;
+
+        int kills;
 };
 
 class CUnitManager

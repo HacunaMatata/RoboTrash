@@ -16,7 +16,7 @@ class CGame
         virtual ~CGame();
         bool initWindow();
         bool initGL();
-        bool initScene();
+        bool initScene(char* map,unsigned int units);
         bool run();
     protected:
     private:

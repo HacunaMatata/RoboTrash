@@ -1,8 +1,11 @@
 #include "CMap.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 CMap::CMap(unsigned int w,unsigned int h)
 {
+    srand(time(NULL));
 
     MapWidth  = w;
     MapHeight = h;

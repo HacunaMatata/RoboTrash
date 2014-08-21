@@ -1,6 +1,7 @@
 RoboTrash
 ======
 
-It's a game.
+It's a zpg-game.
+Курсовая работа.
 
 last build http://null.net
